@@ -44,14 +44,14 @@ steps:
 - script: 'ls $(System.ArtifactsDirectory)/databricks'
 
 - script:
-    BRANCH_NAME= $(echo  awk -F/ '{print $NF}')
+    BRANCH_NAME= $(echo  awk -F/ '{$NF}')
     echo $BRANCH_NAME
     
 
   displayName: 'Delete old release'
 
 - script:
-    BRANCH_NAME= $(echo  awk -F/ '(print $NF)')
+    BRANCH_NAME= $(echo  awk -F/ '($NF)')
     FOLDER=$(echo /$(Foldername))
     echo $FOLDER
     databricks import workspace import_dir $(System.ArtifactDirectory)/databricks.$FOLDER --exclude-hidden-files
