@@ -14,7 +14,7 @@ variables:
 - name: branchName
   value: $(Build.SourceBranch)
 - name: folderName
-  value: Release
+  value: release
 
 steps:
 - task: PublishPipelineArtifact@1
@@ -44,7 +44,7 @@ steps:
 - script: 'ls $(System.ArtifactsDirectory)/databricks'
 
 - script:
-    BRANCH_NAME= $(echo  awk -F/'{$NF}')
+    BRANCH_NAME= $(echo  awk -F/ '{print $NF}')
     FOLDER=$(echo /$(Foldername))
     echo $FOLDER
     folder = $(databricks workspace ls --id $FOLDER)
