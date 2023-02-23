@@ -46,7 +46,6 @@ steps:
 - script:
     
     FOLDER=$(echo /$(folderName))
-    echo $folderName
     echo $FOLDER
     folder = $(databricks workspace ls --id $FOLDER)
     
