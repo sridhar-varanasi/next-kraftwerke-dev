@@ -43,21 +43,17 @@ steps:
 
 - script: 'ls $(System.ArtifactsDirectory)/databricks'
 
-- script:
-    
+- script: |
+    BRANCH_NAME=$(echo  awk -F/ '{print $NF}')
     FOLDER=$(echo '/$(folderName)')
     echo $FOLDER
     folder = $(databricks workspace ls --id $FOLDER)
-    
-    databricks workspace rm $folder --recursive
+    databricks workspace rm $FOLDER --recursive
 
-
-    echo $BRANCH_NAME
-    
 
   displayName: 'Delete old release'
 
-- script:
+- script: |
     BRANCH_NAME= $(echo  awk -F/ '($NF)')
     FOLDER=$(echo /$(Foldername))
     echo $FOLDER
