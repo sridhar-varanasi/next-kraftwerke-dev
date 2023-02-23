@@ -46,8 +46,6 @@ steps:
 - script:
     
     FOLDER=$(echo /$(folderName))
-    echo $FOLDER
-    echo $BRANCH_NAME
     folder = $(databricks workspace ls --id $FOLDER)
     echo $folder
     databricks workspace rm $FOLDER --recursive
