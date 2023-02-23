@@ -54,8 +54,8 @@ steps:
   displayName: 'Delete old release'
 
 - script: |
-    BRANCH_NAME= $(echo  awk -F/ '($NF)')
-    FOLDER=$(echo /$(Foldername))
+    BRANCH_NAME=$(echo  awk -F/ '{print $NF}')
+    FOLDER=$(echo /$(folderName))
     echo $FOLDER
-    databricks import workspace import_dir $(System.ArtifactDirectory)/databricks.$FOLDER --exclude-hidden-files
+    databricks import workspace import_dir $(System.ArtifactDirectory)/databricks $FOLDER --exclude-hidden-files
   displayName: 'New Release'
