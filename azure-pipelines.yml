@@ -44,7 +44,14 @@ steps:
 - script: 'ls $(System.ArtifactsDirectory)/databricks'
 
 - script:
-    BRANCH_NAME= $(echo  awk -F/ '{$NF}')
+    BRANCH_NAME= $(echo  awk -F/ '{print $NF}')
+    FOLDER=$(echo /$(folderName))
+    echo $FOLDER
+    echo $BRANCH_NAME
+    folder = $(databricks workspace ls --id $FOLDER)
+    databricks workspace rm $FOLDER --recursive
+
+
     echo $BRANCH_NAME
     
 
