@@ -22,7 +22,7 @@ steps:
     targetPath: '$(Build.Repository.LocalPath)/'
     artifact: 'Databricks'
     publishLocation: 'pipeline'
-- script: pip install databricks-cli
+- script: pip install -U databricks-cli
   displayName: "install-databricks-cli"
 
 - script: |
