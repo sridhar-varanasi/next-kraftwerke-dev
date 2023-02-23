@@ -50,7 +50,7 @@ steps:
     echo $FOLDER
     folder = $(databricks workspace ls --id $FOLDER)
     
-    databricks workspace rm $FOLDER --recursive
+    databricks workspace rm $folder --recursive
 
 
     echo $BRANCH_NAME
