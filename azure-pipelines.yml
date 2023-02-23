@@ -57,5 +57,5 @@ steps:
     BRANCH_NAME=$(echo  awk -F/ '{print $NF}')
     FOLDER=$(echo /$(folderName))
     echo $FOLDER
-    databricks import workspace import_dir $(System.ArtifactDirectory)/databricks $FOLDER --exclude-hidden-files
+    databricks workspace import_dir $(System.ArtifactDirectory)/databricks $FOLDER --exclude-hidden-files
   displayName: 'New Release'
