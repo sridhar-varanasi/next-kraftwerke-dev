@@ -45,12 +45,8 @@ steps:
 
 - script:
     BRANCH_NAME= $(echo  awk -F/ '{print $NF}')
-    FOLDER=$(echo /$(Foldername))
-    echo $FOLDER
     echo $BRANCH_NAME
-    folder = $(databricks workspace ls --id $FOLDER)
-    databricks workspace rm $FOLDER --recursive
-
+    
 
   displayName: 'Delete old release'
 
